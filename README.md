@@ -92,30 +92,30 @@ Since **AD DS** and **DNS** require a fixed IP to function properly, you'll need
 
 ### Step 5: Configure a Static IP Address
 
-Before continuing with the role installation, it's essential to configure a **static IP address** for the server. This ensures that the server maintains a consistent network identity, which is critical for domain services like **Active Directory Domain Services (AD DS)** and **DNS** to function properly.
+Before continuing with the role installation, it’s essential to configure a **static IP address** for the server. A **static IP** ensures that the server maintains a consistent network identity, which is necessary for domain services like **Active Directory** and **DNS** to function correctly.
 
-By default, servers often receive IP addresses dynamically from a **DHCP (Dynamic Host Configuration Protocol)** server. This means the server’s IP address could change over time, leading to potential network issues and service disruptions. For **AD DS** and **DNS**, having a consistent IP address is crucial to ensure reliable communication and domain management.
+By default, the server may obtain its IP address dynamically through **DHCP** (Dynamic Host Configuration Protocol), but this can lead to potential network issues or service interruptions, especially when the server’s IP address changes. A **static IP** eliminates this problem and guarantees the server’s address stays the same.
 
 To configure the static IP address:
 1. Open **Network Connections** and right-click your **Ethernet adapter**.
 2. Select **Properties**, then click on **Internet Protocol Version 4 (TCP/IPv4)** and choose **Properties** again.
 3. Select **"Use the following IP address"** and enter the following settings:
 
-- **IP address:** 10.0.2.15  
-- **Subnet mask:** 255.255.255.0  
-- **Default gateway:** 10.0.2.15  
-- **Preferred DNS server:** 10.0.2.15  
-- **Alternate DNS server:** 8.8.8.8  
+   - **IP address:** 10.0.2.15  
+   - **Subnet mask:** 255.255.255.0  
+   - **Default gateway:** 10.0.2.15  
+   - **Preferred DNS server:** 10.0.2.15  
+   - **Alternate DNS server:** 8.8.8.8  
 
-This setup ensures the server’s IP address remains fixed. We’ve selected **10.0.2.15** because it’s within the **private IP range** used for internal networking in most virtual environments (like NAT or bridged network setups). You could choose any IP within your **subnet**, as long as it doesn’t conflict with other devices.
+This ensures that the server's network identity remains fixed, which is necessary for DNS resolution and domain controller services to function reliably.
 
 <img width="1599" height="496" alt="image" src="https://github.com/user-attachments/assets/b45296f8-1a08-4a96-b50f-1f3a43698ca4" />
 
-> After selecting **TCP/IPv4 Properties**, configure the server to use a **static IP** instead of obtaining one dynamically from **DHCP**. This ensures that the server’s IP address remains the same, avoiding potential network issues or service interruptions.
+> After selecting **TCP/IPv4 Properties**, configure the server to **use a static IP** instead of obtaining one dynamically from **DHCP**. This ensures that the server’s IP address remains the same, preventing issues that can arise from a changing address.
 
 <img width="1599" height="824" alt="image" src="https://github.com/user-attachments/assets/d81ea652-7d49-4e40-8868-29943c719416" />
 
-Configuring a **static IP address** is critical for domain controllers because it guarantees that the server’s IP will not change. This consistency is required for **DNS** to reliably resolve names and for **AD DS** to manage domain resources. Without a static IP, the server could be unreachable or experience intermittent connectivity if the IP address were to change due to **DHCP**.
+Configuring a **static IP address** is critical for domain controllers because it guarantees that the server’s IP will not change. This consistency is necessary for **DNS** to reliably resolve names and for **AD DS** to
 
 ---
 
