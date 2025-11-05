@@ -1,21 +1,32 @@
-# **Active Directory & DNS Server Deployment on Windows Server 2022**
+# **Active Directory & DNS Server Deployment**
 
-## **Project Overview**
-This project demonstrates how to install, configure, and validate **Active Directory Domain Services (AD DS)** and **DNS Server** on a Windows Server 2022 virtual machine.  
-The lab simulates a small enterprise domain environment, providing foundational experience in directory services, DNS name resolution, and domain management.
-
-The process includes:
-- Installing Active Directory Domain Services and DNS Server roles  
-- Promoting the server to a domain controller  
-- Creating a new forest and domain  
-- Configuring static IP addressing  
-- Verifying DNS resolution  
-- Managing users and organizational units through Active Directory Users and Computers (ADUC)
+[![OS](https://img.shields.io/badge/OS-Windows%20Server%202022-blue?logo=windows)](https://learn.microsoft.com/en-us/windows-server/)
+[![Service](https://img.shields.io/badge/Service-Active%20Directory-blue)](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)
+[![Networking](https://img.shields.io/badge/Service-DNS-green)](https://learn.microsoft.com/en-us/windows-server/networking/dns/dns-top)
+[![Role Installation](https://img.shields.io/badge/Focus-Server%20Role%20Installation-orange)](https://learn.microsoft.com/en-us/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features)
+[![Domain Controller](https://img.shields.io/badge/Concept-Domain%20Controller-lightgrey)](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/understanding-active-directory-domain-services)
+[![System Administration](https://img.shields.io/badge/Skill-System%20Administration-red)](https://en.wikipedia.org/wiki/System_administrator)
 
 ---
 
-## **Objective**
-To deploy a functional **Active Directory domain controller** with integrated **DNS** on Windows Server 2022 and validate the environment through connectivity and name resolution testing.
+## **Project Overview**
+
+This project demonstrates how to **deploy, configure, and validate** an **Active Directory Domain Services (AD DS)** and **DNS Server** environment on **Windows Server 2022**.  
+The lab simulates an enterprise domain controller setup from start to finish — installing necessary roles, configuring static IP addressing, promoting the server to a domain controller, and validating functionality through DNS resolution and directory management.
+
+The environment serves as a foundational exercise for **systems administrators and cybersecurity analysts** learning how identity and name resolution infrastructure functions within enterprise networks.  
+By completing this configuration, users gain practical experience in **domain creation, DNS zone management, and Active Directory structure organization**.
+
+---
+
+## **Objectives**
+
+1. Configure a **static IP address** to ensure reliable network and DNS operations.  
+2. Install and verify the **Active Directory Domain Services (AD DS)** and **DNS Server** roles.  
+3. **Promote the server** to a domain controller and establish a new forest (`rapidascent.local`).  
+4. Validate proper **DNS name resolution** and **network connectivity** post-installation.  
+5. Create an **Organizational Unit (OU)** and a sample user to demonstrate directory structure management.  
+6. Review system **event logs and service health** to confirm successful configuration.
 
 ---
 
