@@ -71,6 +71,8 @@ This ensures the server maintains a consistent network identity and can reliably
 
 <img width="1599" height="496" alt="image" src="https://github.com/user-attachments/assets/b45296f8-1a08-4a96-b50f-1f3a43698ca4" />
 
+<img width="1599" height="824" alt="image" src="https://github.com/user-attachments/assets/d81ea652-7d49-4e40-8868-29943c719416" />
+
 ---
 
 ## **Step 6: Confirm Installation Selections**
