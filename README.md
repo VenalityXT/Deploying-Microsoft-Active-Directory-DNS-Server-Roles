@@ -30,37 +30,46 @@ By completing this configuration, users gain practical experience in **domain cr
 
 ---
 
-## Step 1: Access Server Manager
+### Step 1: Access Server Manager
 
-The Server Manager console is the central hub for managing server roles and features on Windows Server. It provides a unified interface for configuring services such as Active Directory Domain Services (AD DS) and DNS, which are essential for setting up a domain environment.
+The **Server Manager** console is the primary interface for managing server roles and features on **Windows Server**. It provides the tools necessary to configure services like **Active Directory Domain Services (AD DS)** and **DNS**, which are required for setting up a domain environment.
 
-We'll start by opening Server Manager from the Start Menu or taskbar. From the Dashboard, select Add roles and features to begin the installation process.
+Start by opening **Server Manager** from the **Start Menu** or taskbar. From the **Dashboard**, click **Add roles and features** to begin the installation process.
 
-- Open Server Manager from the Start Menu or taskbar.  
-- From the Dashboard, select Add roles and features.  
-  This will open the wizard for installing roles, including Active Directory and DNS, which are critical for the domain infrastructure.
+- Open **Server Manager** from the Start Menu or taskbar.  
+- From the **Dashboard**, select **Add roles and features** to start the installation.
 
 <img width="1599" height="810" alt="image" src="https://github.com/user-attachments/assets/58be3916-6925-43e3-8db5-a51c6a3d9419" />
 
-The Add Roles and Features Wizard will guide the installation of core server components. At this stage, we are focused on enabling AD DS for domain management and DNS for name resolution, both of which are essential for a functional domain environment.
-
-> The Server Manager console is often the first place administrators go to configure roles and features after a fresh Windows Server installation, making it a key tool in system administration.
+> The **Add Roles and Features Wizard** will guide you through the process of adding server components, with a focus on enabling **AD DS** for domain management and **DNS** for name resolution.
 
 ---
 
-## **Step 2: Select Installation Type**
-Choose **“Role-based or feature-based installation.”**  
-This option allows you to install AD DS and DNS roles directly onto this server.
+### Step 2: Select Installation Type
+
+When prompted, select **"Role-based or feature-based installation"**. This option allows us to install the **Active Directory Domain Services (AD DS)** and **DNS** roles, which are essential for setting up the domain environment.
+
+Here’s a quick comparison of the two options available:
+
+| Option                                     | Description | Why We're Choosing It |
+|--------------------------------------------|-------------|-----------------------|
+| **Role-based or feature-based installation** | Install and configure core roles like **AD DS** and **DNS**. | This is the right choice for building a domain controller and setting up DNS for name resolution. |
+| **Remote Desktop Services installation**    | Used for configuring Remote Desktop environments for users. | We don't need this for a domain setup, but it's useful for deploying virtual desktop infrastructures or allowing remote desktop access to a server. |
 
 <img width="784" height="558" alt="image" src="https://github.com/user-attachments/assets/b741298a-9bd1-41da-9c47-166435fc4b95" />
 
+> The **Role-based installation** is the foundation for adding domain-related roles. Think of it like choosing to build the flooring of a house before adding the furniture!
+
 ---
 
-## **Step 3: Select the Destination Server**
-Select **“This server from the server pool”** to apply changes locally.  
-Your server should appear with its IP address and Windows version listed.
+### Step 3: Select the Destination Server
+
+In this step, select **"This server from the server pool"** to apply the changes locally to the current server.  
+Your server should appear in the list with its IP address and Windows version shown, confirming that it's the correct server for the installation.
 
 <img width="784" height="558" alt="image" src="https://github.com/user-attachments/assets/6c15d4e1-4c87-406c-8ee8-2bead6a04dc5" />
+
+> By selecting **"This server from the server pool"**, you're ensuring that the roles will be installed on the local server, rather than another machine in the network. This step confirms you're working on the right server for your domain setup.
 
 ---
 
