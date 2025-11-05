@@ -86,7 +86,7 @@ Since **AD DS** and **DNS** require a fixed IP to function properly, you'll need
 
 <img width="782" height="558" alt="image" src="https://github.com/user-attachments/assets/32a392a4-937e-4594-84bb-ca6ee76583ae" />
 
-> **Note:** If you see the static IP warning, don't worry—this is a reminder that a domain controller needs a consistent network identity. We'll address this in **Step 5** by configuring a static IP for the server.
+> **Note:** If you see the static IP warning, don't worry! This is a reminder that a domain controller needs a consistent network identity. We'll address this in **Step 5** by configuring a static IP for the server.
 
 ---
 
