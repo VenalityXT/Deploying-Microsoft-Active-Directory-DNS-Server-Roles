@@ -202,19 +202,26 @@ You should see:
 Next, open **Active Directory Users and Computers (ADUC)** and **DNS Manager** to verify both services are active.  
 ADUC should display your domain (`rapidascent.local`), and DNS Manager should show the corresponding forward lookup zones.
 
+<img width="964" height="525" alt="image" src="https://github.com/user-attachments/assets/3c6cf1a8-95dd-4529-aa39-aaa3494f08a3" />
+
+> These menus can be found in the tools menu in the top right corner of the dashboard.
+
 ---
 
 ### Step 11: Test Name Resolution
 
-To confirm DNS and AD integration, open **PowerShell** and test name resolution:
+To confirm DNS and AD integration, open **PowerShell** and run the following commands:
 
-```powershell
+X
 nslookup rapidascent.local
 ping rapidascent.local
-```
+X
+
 <img width="500" height="511" alt="image" src="https://github.com/user-attachments/assets/a3f58c3c-9c7c-4e7c-b75b-5bbad57ceeb8" />
 
-A successful lookup and reply will confirm that DNS and AD are functioning correctly. If the setup is correct, the nslookup command should return the server’s IP address, and ping should successfully reach the domain.
+A successful **nslookup** should return the server’s IP address, and **ping** should successfully reach the domain. This confirms that DNS and AD integration are functioning correctly.
+
+If **nslookup** shows a timeout or error, it’s usually not a concern at this stage. This can occur if the DNS server is still processing or if temporary network delays or firewalls interfere with the request. The important thing is that **ping** works, indicating DNS is properly resolving the domain.
 
 ---
 
