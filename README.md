@@ -138,14 +138,14 @@ After the installation completes, a post-deployment notification will prompt you
 
 Once the installation completes, you will see a **post-deployment notification** prompting you to **“Promote this server to a domain controller.”** Click on this link to begin the configuration.
 
+<img width="1599" height="757" alt="image" src="https://github.com/user-attachments/assets/88cdcb98-e5cd-4c45-8582-7e3533dbc93c" />
+
 In the **Deployment Configuration** window, choose **“Add a new forest”** since we are setting up a new domain environment.  
 Next, specify the **root domain name** for the forest. In this case, we will use:
 
 ```
 rapidascent.local
 ```
-
-<img width="1599" height="757" alt="image" src="https://github.com/user-attachments/assets/88cdcb98-e5cd-4c45-8582-7e3533dbc93c" />
 
 > The root domain name forms the foundation of the forest. It is the highest-level domain in your Active Directory structure and will be used to identify the domain in your network.
 
