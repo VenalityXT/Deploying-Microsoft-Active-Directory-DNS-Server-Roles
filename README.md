@@ -212,6 +212,8 @@ To confirm DNS and AD integration, open **PowerShell** and test name resolution:
 nslookup rapidascent.local
 ping rapidascent.local
 ```
+<img width="500" height="511" alt="image" src="https://github.com/user-attachments/assets/a3f58c3c-9c7c-4e7c-b75b-5bbad57ceeb8" />
+
 A successful lookup and reply will confirm that DNS and AD are functioning correctly. If the setup is correct, the nslookup command should return the server’s IP address, and ping should successfully reach the domain.
 
 ---
