@@ -261,7 +261,7 @@ As long as there are no persistent errors related to **DNS** or **AD**, everythi
 
 <img width="965" height="571" alt="image" src="https://github.com/user-attachments/assets/b53e8ff3-9713-4ace-9cce-f037f5640583" />
 
-> If you continue to see warnings or critical errors after the system has fully rebooted and stabilized, it may be worth reviewing the event logs further or checking the DNS and AD configurations. But for now, as long as the DNS resolution and AD functionality tests (like `nslookup` and `ping`) succeed, you're all set.
+> If you continue to see warnings or critical errors after the system has fully rebooted and stabilized, it may be worth reviewing the event logs further or checking the DNS and AD configurations. But for now, as long as the DNS resolution and AD functionality tests (like `nslookup` and `ping`) succeed, you're all set!
 
 ---
 
