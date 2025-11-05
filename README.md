@@ -119,20 +119,27 @@ Configuring a **static IP address** is critical for domain controllers because i
 
 ---
 
-## **Step 6: Confirm Installation Selections**
-On the **Confirmation** page, review your selected roles.  
-Ensure both AD DS and DNS Server are listed, then click **Install**.  
-Optionally, select **“Restart the destination server automatically if required.”**
+### Step 6: Confirm Installation Selections
+
+On the **Confirmation** page, you will review the roles that you’ve selected for installation. Double-check that both **Active Directory Domain Services (AD DS)** and **DNS Server** are listed under the selected roles.
+
+Once confirmed, click **Install** to proceed with the installation.  
+You also have the option to select **“Restart the destination server automatically if required,”** which will ensure the server restarts automatically after the installation, minimizing downtime.
 
 <img width="783" height="557" alt="image" src="https://github.com/user-attachments/assets/aeae904c-03ef-4d24-9f42-f80d072b5ae1" />
 
-After installation, you’ll receive a post-deployment notification prompting to “Promote this server to a domain controller.”
+> It’s always a good idea to enable the automatic restart option. This ensures that the installation completes smoothly without requiring manual intervention after the server finishes setting up the roles.
+
+After the installation completes, a post-deployment notification will prompt you to **“Promote this server to a domain controller”**. This step is essential to finalize the setup and make the server fully functional as a domain controller.
 
 ---
 
-## **Step 7: Promote the Server to a Domain Controller**
-Select **“Promote this server to a domain controller.”**  
-In the **Deployment Configuration** window, choose **“Add a new forest”** and specify the root domain name:
+### Step 7: Promote the Server to a Domain Controller
+
+Once the installation completes, you will see a **post-deployment notification** prompting you to **“Promote this server to a domain controller.”** Click on this link to begin the configuration.
+
+In the **Deployment Configuration** window, choose **“Add a new forest”** since we are setting up a new domain environment.  
+Next, specify the **root domain name** for the forest. In this case, we will use:
 
 ```
 rapidascent.local
@@ -140,73 +147,85 @@ rapidascent.local
 
 <img width="1599" height="757" alt="image" src="https://github.com/user-attachments/assets/88cdcb98-e5cd-4c45-8582-7e3533dbc93c" />
 
+> The root domain name forms the foundation of the forest. It is the highest-level domain in your Active Directory structure and will be used to identify the domain in your network.
+
+Click **Next** and proceed with the wizard’s steps to complete the configuration.
+
 <img width="758" height="558" alt="image" src="https://github.com/user-attachments/assets/4a871896-aabd-4581-9c93-3b1a21a8fec2" />
 
-This creates a new Active Directory forest — a hierarchical structure that contains the domain and all its objects.
+By promoting the server, you are creating a **new Active Directory forest**. A forest is a hierarchical structure that houses the domain and all its objects, such as users, computers, and group policies.
 
 ---
 
-## **Step 8: Configure Domain Controller Options**
-Keep default settings:
-- **Forest functional level:** Windows Server 2016  
-- **Domain functional level:** Windows Server 2016  
-- **DNS Server** and **Global Catalog (GC)** checked  
+### Step 8: Configure Domain Controller Options
 
-Enter a **Directory Services Restore Mode (DSRM)** password.  
-This is used for system recovery and should be securely stored.
+In the **Domain Controller Options** window, keep the default settings for optimal compatibility:
+
+- **Forest functional level**: Windows Server 2016
+- **Domain functional level**: Windows Server 2016
+- **DNS Server** and **Global Catalog (GC)** should both be checked
+
+These options ensure that the domain controller will support key Active Directory services, such as DNS for domain name resolution and Global Catalog for faster search capabilities across domains.
+
+Next, enter a **Directory Services Restore Mode (DSRM)** password.  
+This password is critical for system recovery, as it grants you access to the server when booting into Directory Services Restore Mode. Be sure to store this password securely, as it will be needed for disaster recovery scenarios.
 
 <img width="759" height="557" alt="image" src="https://github.com/user-attachments/assets/d92a1e4d-f555-4ba4-a380-0a07a89b7f06" />
 
+The **Forest functional level** and **Domain functional level** determine the features available in your Active Directory environment. These default settings ensure compatibility with older versions of Windows Server, which is why we use
+
 ---
 
-## **Step 9: Review Prerequisites**
-Windows will perform a system validation before proceeding.  
-Warnings about legacy cryptography or DNS delegation can be ignored in standalone lab setups.  
-Once validation passes, click **Install** to promote the server.  
-The system will automatically reboot when complete.
+### Step 9: Review Prerequisites
+
+Windows will perform a system validation to ensure everything is in place for AD DS and DNS installation.  
+While warnings about legacy cryptography settings or DNS delegation may appear, these can typically be ignored in standalone lab environments. Once the validation passes successfully, click **Install** to proceed with promoting the server.  
+
+The system will automatically reboot when the installation is complete.
 
 <img width="758" height="557" alt="image" src="https://github.com/user-attachments/assets/8243a149-0413-443e-ad2f-dc4209c0acc7" />
 
+> **Tip**: DNS delegation issues are only relevant in a multi-server environment with an existing DNS infrastructure. In a lab setup, we can bypass this step since we're configuring everything locally.
+
 ---
 
-## **Step 10: Verify AD DS and DNS Installation**
-After reboot, return to **Server Manager → Manage → Add Roles and Features → Installed Roles**.  
-You should now see:
+### Step 10: Verify AD DS and DNS Installation
+
+After the server reboots, open **Server Manager → Manage → Add Roles and Features → Installed Roles** to confirm the roles have been successfully installed.  
+You should see:
 - **Active Directory Domain Services**
 - **DNS Server**
 
 <img width="1336" height="308" alt="image" src="https://github.com/user-attachments/assets/e4562e99-9140-48c3-b755-18260ceb2bee" />
 
-Open **Active Directory Users and Computers (ADUC)** and **DNS Manager** to confirm both services are active.  
-ADUC should show your domain (`rapidascent.local`) and DNS Manager should display matching forward lookup zones.
-
-<img width="964" height="525" alt="image" src="https://github.com/user-attachments/assets/bd64d134-b991-497a-a498-6100762fd2fe" />
+Next, open **Active Directory Users and Computers (ADUC)** and **DNS Manager** to verify both services are active.  
+ADUC should display your domain (`rapidascent.local`), and DNS Manager should show the corresponding forward lookup zones.
 
 ---
 
-## **Step 11: Test Name Resolution**
-Open PowerShell and test name resolution:
-```
+### Step 11: Test Name Resolution
+
+To confirm DNS and AD integration, open **PowerShell** and test name resolution:
+
+```powershell
 nslookup rapidascent.local
 ping rapidascent.local
 ```
-
-A successful lookup and reply confirm DNS and AD integration are functioning properly.
-
-<img width="500" height="511" alt="image" src="https://github.com/user-attachments/assets/73617cd7-fb84-4b59-b86e-6fae211f8a10" />
+A successful lookup and reply will confirm that DNS and AD are functioning correctly. If the setup is correct, the nslookup command should return the server’s IP address, and ping should successfully reach the domain.
 
 ---
 
-## **Step 12: Create an Organizational Unit (OU) and User**
-In **Active Directory Users and Computers**:
+### Step 12: Create an Organizational Unit (OU) and User
+
+In **Active Directory Users and Computers (ADUC)**:
 1. Right-click your domain → **New → Organizational Unit** → Name it `IT_Department`.  
 2. Inside the new OU, right-click → **New → User**.  
    - First Name: John  
    - Last Name: Doe  
    - User logon name: jdoe  
-3. Assign a password and uncheck **“User must change password at next logon.”**
+3. Set a password and uncheck **“User must change password at next logon.”**
 
-This demonstrates Active Directory object creation and management within an organizational structure.
+This demonstrates creating and managing Active Directory objects like users and organizational units within a domain.
 
 <img width="570" height="528" alt="image" src="https://github.com/user-attachments/assets/aadd6db3-7601-4a55-9cda-5d3f50b6db6b" />
 
@@ -214,13 +233,12 @@ This demonstrates Active Directory object creation and management within an orga
 
 <img width="571" height="529" alt="image" src="https://github.com/user-attachments/assets/2e1f49cf-f964-4ae5-8c3b-3d9619afa12a" />
 
-
 ---
 
-## **Step 13: Review System Health**
-Return to **Server Manager → Local Server → Events** and check for critical or warning messages.  
-Kernel power messages are normal from reboots during role installation.  
-If no persistent DNS or AD errors appear, the deployment is stable.
+### Step 13: Review System Health
+
+Return to **Server Manager → Local Server → Events** and check for any critical or warning messages.  
+You may notice **Kernel Power** messages, which are expected due to reboots during role installation. As long as no persistent **DNS** or **AD** errors appear, the deployment is stable.
 
 <img width="965" height="571" alt="image" src="https://github.com/user-attachments/assets/b53e8ff3-9713-4ace-9cce-f037f5640583" />
 
