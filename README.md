@@ -92,9 +92,9 @@ Since **AD DS** and **DNS** require a fixed IP to function properly, you'll need
 
 ### Step 5: Configure a Static IP Address
 
-Before continuing with the role installation, it’s essential to configure a **static IP address** for the server. This ensures that the server maintains a consistent network identity and can reliably act as its own DNS authority.
+Before continuing with the role installation, it's essential to configure a **static IP address** for the server. This ensures that the server maintains a consistent network identity, which is critical for domain services like **Active Directory Domain Services (AD DS)** and **DNS** to function properly.
 
-To set a static IP, follow these steps:
+To configure the static IP address:
 1. Open **Network Connections** and right-click your **Ethernet adapter**.
 2. Select **Properties**, then click on **Internet Protocol Version 4 (TCP/IPv4)** and choose **Properties** again.
 3. Select **"Use the following IP address"** and enter the following settings:
@@ -105,13 +105,15 @@ To set a static IP, follow these steps:
 - **Preferred DNS server:** 10.0.2.15  
 - **Alternate DNS server:** 8.8.8.8  
 
-This configuration ensures that the server’s network identity remains fixed, and it can function properly as a domain controller with DNS capabilities.
+This setup ensures the server’s IP address remains fixed. The reason for choosing **10.0.2.15** is that it falls within the **private IP address range** commonly used in **NAT (Network Address Translation)** configurations, which is typical for virtual environments. However, the exact IP address can vary depending on your network setup. You can choose any IP within your private subnet as long as it doesn't conflict with other devices on the same network.
 
 <img width="1599" height="496" alt="image" src="https://github.com/user-attachments/assets/b45296f8-1a08-4a96-b50f-1f3a43698ca4" />
 
+> Once you’ve accessed the **TCP/IPv4 Properties**, you’ll configure the IP settings to ensure your server has a fixed network address, which is crucial for services like **AD DS** and **DNS**. Without this, the server could lose its network connectivity or IP address, potentially causing service disruptions.
+
 <img width="1599" height="824" alt="image" src="https://github.com/user-attachments/assets/d81ea652-7d49-4e40-8868-29943c719416" />
 
-> Configuring a static IP is critical for domain controllers because it ensures consistent network addressing, preventing future conflicts or disruptions that might arise from a dynamic IP address.
+Configuring a static IP address is vital for domain controllers because it ensures **consistent network addressing**. This prevents future conflicts or disruptions that could arise if the server were to obtain a new IP address from a **DHCP** server.
 
 ---
 
